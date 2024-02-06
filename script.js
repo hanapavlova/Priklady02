@@ -9,7 +9,7 @@ const castka = 11237;
 const castkaNaOsobu = Math.floor (11237/5);
 const zbytek = castka % 5;
 
-document.body.innerHTML += "Každý dostane " + castkaNaOsobu + " Kč, ve fondu zbyde " + zbytek + " Kč.";
+document.body.innerHTML += "Každý dostane " + castkaNaOsobu + " Kč, ve fondu zbydou " + zbytek + " Kč.";
 
 /*
 2.Zaokrouhlení desetinného čísla:
@@ -38,3 +38,10 @@ Odečtěte 60 % z příjmu jako paušál.
 Ze zbytku zaplaťte 15 % daně.
 Zaokrouhlete výsledek dolů a vypište daň do HTML.
 */
+
+const prijem = 15000;
+const pausal = prijem*0.6;
+const zaklad = prijem-pausal;
+const dan = Math.floor(zaklad*0.15);
+
+document.body.innerHTML += "<p>Daň z příjmu je " + dan + " Kč (po zaokrouhlení).</p>"
