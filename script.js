@@ -22,10 +22,15 @@ const vysledek = Math.round(cislo);
 document.body.innerHTML += "<p>Výsledek příkladu je " + vysledek + ".</p>";
 
 /*
-3. Výpočet daně z nákupu s DPH:Máte částku za zboží před DPH (např. 325 Kč).
+3. Výpočet daně z nákupu s DPH: Máte částku za zboží před DPH (např. 325 Kč).
 Přidejte 21 % DPH k ceně zboží.
 Vypište cenu zboží, DPH a celkovou cenu do HTML.
 */
+const cenaBezDPH = 325;
+const cenaSDPH = 325*1.21;
+const konecnaCena = Math.round(cenaSDPH);
+
+document.body.innerHTML += "<p>Cena zboží bez DPH je " + cenaBezDPH + " Kč.</p>" + "<p>DPH je 21 %.</p>" + "<p>Cena zboží s DPH je " + cenaSDPH + " Kč, po zaoklouhlení " + konecnaCena + " Kč.</p>"
 
 /*
 4. Výpočet daně z příjmu s odečtem paušálu:Máte příjem z podnikání (např. 15000 Kč).
