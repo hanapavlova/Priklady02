@@ -1,10 +1,11 @@
+
 /*
 Rozdělení peněz mezi lidi:
 Máte určitou částku peněz (např. 11237 Kč).
 Rozdělte tuto částku rovnoměrně mezi určitý počet lidí (např. 5).
 Vypište každému, kolik dostal peněz.
 a kolik zbývá v zůstatku
-*/
+
 const castka = 11237;
 const castkaNaOsobu = Math.floor (11237/5);
 const zbytek = castka % 5;
@@ -15,7 +16,7 @@ document.body.innerHTML += "Každý dostane " + castkaNaOsobu + " Kč, ve fondu 
 2.Zaokrouhlení desetinného čísla:
 Máte desetinné číslo (např. 8.75).
 Zaokrouhlete toto číslo na celé číslo pomocí Math.round a vypište výsledek.
-*/
+
 const cislo = 8.75;
 const vysledek = Math.round(cislo);
 
@@ -25,7 +26,7 @@ document.body.innerHTML += "<p>Výsledek příkladu je " + vysledek + ".</p>";
 3. Výpočet daně z nákupu s DPH: Máte částku za zboží před DPH (např. 325 Kč).
 Přidejte 21 % DPH k ceně zboží.
 Vypište cenu zboží, DPH a celkovou cenu do HTML.
-*/
+
 const cenaBezDPH = 325;
 const cenaSDPH = 325*1.21;
 const konecnaCena = Math.round(cenaSDPH);
@@ -37,7 +38,7 @@ document.body.innerHTML += "<p>Cena zboží bez DPH je " + cenaBezDPH + " Kč.</
 Odečtěte 60 % z příjmu jako paušál.
 Ze zbytku zaplaťte 15 % daně.
 Zaokrouhlete výsledek dolů a vypište daň do HTML.
-*/
+
 
 const prijem = 15000;
 const pausal = prijem*0.6;
@@ -53,6 +54,76 @@ Při zapůjčení kola na 3 dny získáte 10% slevu.
 Při zapůjčení kola na 5 dní získáte slevu 15 %.
 Při zapůjčení kola na 7 a více dní je poskytována sleva 20 %.
 Napište program, který vypočítá náklady na zapůjčení kola s přihlédnutím ke zvolené době pronájmu a odpovídající slevě.*/
+
+/*
+//Řešení A
+const cenaDen = 257;
+const pocetDni = Number(prompt("Počet dní: "));
+const cena2Dny = cenaDen*2;
+const cena3Dny = Math.round(cenaDen*0.9*3);
+const cena4Dny = Math.round(cenaDen*0.9*4);
+const cena5Dni = Math.round(cenaDen*0.85*5);
+const cena6Dni = Math.round(cenaDen*0.85*6);
+const sleva7Dni = Math.round(cenaDen*0.8);
+const cenaMin7Dni = Math.round(sleva7Dni*pocetDni);
+
+if (Number.isInteger(pocetDni)){
+    if (pocetDni === 1) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na jeden den je " + cenaDen + " Kč.</p>"
+    }
+    else if (pocetDni === 2) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na dva dny je " + cena2Dny + " Kč.</p>"
+    }
+    else if (pocetDni === 3) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na tři dny je " + cena3Dny + " Kč.</p>"
+    }
+    else if (pocetDni === 4) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na čtyři dny je " + cena4Dny + " Kč.</p>"
+    }
+    else if (pocetDni === 5) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na pět dní je " + cena5Dni + " Kč.</p>"
+    }
+    else if (pocetDni === 6) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na šest dní je " + cena6Dni + " Kč.</p>"
+    }
+    else if (pocetDni >= 7) {
+        document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + cenaMin7Dni + " Kč.</p>"
+    }
+    else {
+        document.body.innerHTML += "<p>Neplatná hodnota</p>"
+    }
+}
+else {
+    document.body.innerHTML += "<p>Neplatná hodnota</p>"
+}
+
+*/
+
+//Řešení B
+const cenaDen = 257;
+const pocetDni = Number(prompt("Počet dní: "));
+const sleva3Dny = cenaDen*0.9;
+const sleva5Dni = cenaDen*0.85;
+const sleva7Dni = cenaDen*0.8;
+
+if (pocetDni === 1) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na jeden den je " + cenaDen + " Kč.</p>"
+}
+else if (pocetDni === 2) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na dva dny je " + pocetDni*cenaDen + " Kč.</p>"
+}
+else if (pocetDni <= 4 && Number.isInteger(pocetDni)) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dny je " + Math.round(pocetDni*sleva3Dny) + " Kč.</p>"
+}
+else if (pocetDni <= 6 && Number.isInteger(pocetDni)) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + Math.round(pocetDni*sleva5Dni) + " Kč.</p>"
+}
+else if (pocetDni >= 7 && Number.isInteger(pocetDni)) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + Math.round(pocetDni*sleva7Dni) + " Kč.</p>"
+}
+else {
+    document.body.innerHTML += "<p>Neplatná hodnota</p>"
+}
 
 /*
 6. Výpočet nákladů na oběd v restauraci
