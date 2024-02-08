@@ -65,7 +65,6 @@ const cena4Dny = Math.round(cenaDen*0.9*4);
 const cena5Dni = Math.round(cenaDen*0.85*5);
 const cena6Dni = Math.round(cenaDen*0.85*6);
 const sleva7Dni = Math.round(cenaDen*0.8);
-const cenaMin7Dni = Math.round(sleva7Dni*pocetDni);
 
 if (Number.isInteger(pocetDni)){
     if (pocetDni === 1) {
@@ -87,7 +86,7 @@ if (Number.isInteger(pocetDni)){
         document.body.innerHTML += "<p>Cena za půjčení kola na šest dní je " + cena6Dni + " Kč.</p>"
     }
     else if (pocetDni >= 7) {
-        document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + cenaMin7Dni + " Kč.</p>"
+        document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + (sleva7Dni*pocetDni) + " Kč.</p>"
     }
     else {
         document.body.innerHTML += "<p>Neplatná hodnota</p>"
@@ -96,15 +95,15 @@ if (Number.isInteger(pocetDni)){
 else {
     document.body.innerHTML += "<p>Neplatná hodnota</p>"
 }
-
+// výhrady: zbytečně složitý kód, je lepší mít kód co nejjednodušší a co nejpřehlednější
+//          zaokrouhlení by mělo být až v rádcích výpisu, jinak to nevychází přesně
+//          místo tolika řádků výpisu se dají použít operátory &&
 */
 
 //Řešení B
+// tohle je dobré řešení
 const cenaDen = 257;
 const pocetDni = Number(prompt("Počet dní: "));
-const sleva3Dny = cenaDen*0.9;
-const sleva5Dni = cenaDen*0.85;
-const sleva7Dni = cenaDen*0.8;
 
 if (pocetDni === 1) {
     document.body.innerHTML += "<p>Cena za půjčení kola na jeden den je " + cenaDen + " Kč.</p>"
@@ -112,14 +111,14 @@ if (pocetDni === 1) {
 else if (pocetDni === 2) {
     document.body.innerHTML += "<p>Cena za půjčení kola na dva dny je " + pocetDni*cenaDen + " Kč.</p>"
 }
-else if (pocetDni <= 4 && Number.isInteger(pocetDni)) {
-    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dny je " + Math.round(pocetDni*sleva3Dny) + " Kč.</p>"
+else if (pocetDni === 3 || pocetDni === 4) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dny je " + Math.round(pocetDni*cenaDen*0.9) + " Kč.</p>"
 }
-else if (pocetDni <= 6 && Number.isInteger(pocetDni)) {
-    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + Math.round(pocetDni*sleva5Dni) + " Kč.</p>"
+else if (pocetDni === 5 || pocetDni === 6) {
+    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + Math.round(pocetDni*cenaDen*0.85) + " Kč.</p>"
 }
 else if (pocetDni >= 7 && Number.isInteger(pocetDni)) {
-    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + Math.round(pocetDni*sleva7Dni) + " Kč.</p>"
+    document.body.innerHTML += "<p>Cena za půjčení kola na " + pocetDni + " dní je " + Math.round(pocetDni*cenaDen*0.8) + " Kč.</p>"
 }
 else {
     document.body.innerHTML += "<p>Neplatná hodnota</p>"
