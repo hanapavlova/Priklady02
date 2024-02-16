@@ -99,7 +99,7 @@ else {
 //          zaokrouhlení by mělo být až v rádcích výpisu, jinak to nevychází přesně
 //          místo tolika řádků výpisu se dají použít operátory &&
 */
-
+/*
 //Řešení B
 // tohle je dobré řešení
 const cenaDen = 257;
@@ -123,17 +123,29 @@ else if (pocetDni >= 7 && Number.isInteger(pocetDni)) {
 else {
     document.body.innerHTML += "<p>Neplatná hodnota</p>"
 }
-
+*/
 /*
 6. Výpočet nákladů na oběd v restauraci
-Restaurace má speciální nabídku na pracovní oběd: oběd stojí 500 Kč. Pro stálé zákazníky je však sleva 20 %. Napište program, který spočítá celkové náklady na jídlo, pokud by bylo 15 stálých zákazníků a 7 stálých zákazníků.
+Restaurace má speciální nabídku na pracovní oběd: oběd stojí 500 Kč. Pro stálé zákazníky je však sleva 20 %. Napište program, který spočítá celkové náklady na jídlo, pokud by bylo 15 nestálých zákazníků a 7 stálých zákazníků.
+
+const plnaCena = 500
+const cenaSleva = plnaCena*0.8
+
+document.body.innerHTML = "Celkové náklady na jídlo budou " + (15*plnaCena + 7*cenaSleva) + " Kč."
 */
 
 /*
 7. Výpočet ceny jízdenky s přihlédnutím ke slevě
-V kině probíhá akce, která poskytuje různé slevy na vstupenky v závislosti na věkové kategorii návštěvníků. Cena běžné jízdenky je 300 kč.
+V kině probíhá akce, která poskytuje různé slevy na vstupenky v závislosti na věkové kategorii návštěvníků. Cena běžné vstupenky je 300 kč.
 Důchodci a děti do 16 let mají slevu 25 %. Do kina přišlo 10 důchodců a 5 dětí do 16 let.
 Studenti mají 50% slevu. Do kina přišlo 7 studentů.
 Děti do 7 let navštěvují kino zdarma. Do kina přišly 2 děti této věkové kategorie.
 Je nutné sepsat program pro výpočet celkových nákladů na vstupenky s přihlédnutím ke všem poskytnutým slevám a celkový počet návštěvníků.
+
+
+const beznaVstupenka = 300
+const nakladyDetiDuchodci = (beznaVstupenka*0.75)*(10+5)
+const nakladyStudenti = beznaVstupenka*0.5*7
+
+document.body.innerHTML = "Do kina celkem přišlo " + (10+5+7+2) + " návštěvníků. Celková tržba ze vstupného činila " + (nakladyDetiDuchodci + nakladyStudenti) + " Kč."
 */
